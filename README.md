@@ -14,13 +14,18 @@ Well... all you need is:
 
 4 - Open terminal and run npm install
 
-5 - Add a .env file inside your workspace and add 5 variables... [
-    REST_PORT=8000,
-    REST_HOST='0.0.0.0',
-    GRAPHQL_PORT=4000,
-    GRAPHQL_HOST='0.0.0.0',
-    REDIS_URL='redis://localhost:6379'
-];
+5 - Add a .env file inside your workspace and add 5 variables... 
+
+REST_PORT=8000
+
+REST_HOST='0.0.0.0'
+
+GRAPHQL_PORT=4000
+
+GRAPHQL_HOST='0.0.0.0'
+
+REDIS_URL='redis://localhost:6379'
+
 
 6 - Run npm run dev and go inside http://localhost:4000 where you'll find the graphql sandbox to test it out
 
@@ -36,32 +41,53 @@ Well... all you need is:
 
 4 - run command docker images to see if you have the project imagejohnpugliesi/car-webservice inside your images
 
-5 - create a directory to run the project, open it, create a docker-compose.yml file and add it [
+5 - create a directory to run the project, open it, create a docker-compose.yml file and add it 
+
 services:
   webservice: 
+  
     image: johnpugliesi/car-webservice
+
     container_name: car-webservice
+
     ports:
+
       - '8000:8000'
+
       - '4000:4000'
+
     depends_on:
+
       - redisservice
+
     networks:
+
       - api-network
+
     env_file:
+
       - .env
 
+
   redisservice:
+
     image: redis
+
     container_name: redis-webservice
+
     ports:
+
       - '6379:6379'
+
     networks:
+
       - api-network
+
 networks:
+
   api-network:
+
     driver: bridge
-]
 
 6 - run docker-compose -p car-shop up
 
