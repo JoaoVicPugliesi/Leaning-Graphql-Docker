@@ -1,0 +1,24 @@
+services:
+  webservice: 
+    image: johnpugliesi/car-webservice
+    container_name: car-webservice
+    ports:
+      - '8000:8000'
+      - '4000:4000'
+    depends_on:
+      - redisservice
+    networks:
+      - api-network
+    env_file:
+      - .env
+
+  redisservice:
+    image: redis
+    container_name: redis-webservice
+    ports:
+      - '6379:6379'
+    networks:
+      - api-network
+networks:
+  api-network:
+    driver: bridge
