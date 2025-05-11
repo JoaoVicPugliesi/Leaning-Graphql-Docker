@@ -26,7 +26,6 @@ export class ISaveBrandUseCase {
 
     if (brand) return new BrandAlreadyExistsErrorResponse();
     const id: string = this.iIdService.v4();
-    console.log(id);
     await this.iBrandRepository.save({
       id,
       name,

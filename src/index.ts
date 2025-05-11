@@ -3,7 +3,6 @@ import { ApolloServer, BaseContext } from '@apollo/server';
 import { apollo } from '@server/Apollo/ApolloServer';
 import { fastify } from '@server/Fastify/FastifyInstance';
 import { startStandaloneServer } from '@apollo/server/standalone';
-import { redis } from '@api/Redis';
 
 class Application {
   constructor(
@@ -35,6 +34,4 @@ class Application {
 const application: Application = new Application(apollo, fastify);
 (async () => {
   await application.run();
-  const members = await redis.sMembers('branded-cars:a6cd65c2-7fe0-43f4-8050-badef3afa8ce');
-  console.log(members);
 })();

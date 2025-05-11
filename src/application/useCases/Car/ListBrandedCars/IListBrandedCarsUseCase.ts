@@ -20,7 +20,6 @@ export class IListBrandedCarsUseCase {
 
     if(!cars) return new BrandedCarsNotFoundErrorResponse();
 
-    console.log(cars);
     return {
         cars: cars
     };

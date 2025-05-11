@@ -18,7 +18,6 @@ export class IListCarsUseCase {
 
     if(!cars) return new CarsNotFoundErrorResponse();
 
-    console.log(cars);
     return {
         cars: cars
     };

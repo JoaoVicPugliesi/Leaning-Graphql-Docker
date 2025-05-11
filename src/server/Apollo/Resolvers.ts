@@ -118,7 +118,6 @@ export const resolvers = {
 
   Brand: {
     cars: async (parent: Brand) => {
-      console.log(parent);
       const { cars } = await iListBrandedCars.handle({
         starts: 0,
         ends: 20,
