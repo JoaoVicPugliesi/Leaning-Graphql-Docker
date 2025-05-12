@@ -1,6 +1,6 @@
-import { ICarRepository } from "@domain/repositories/ICarRepository";
-import { CarsNotFoundErrorResponse, IListCarsDTO, IListCarsResponse } from "./IListCarsDTO";
-import { Car } from "@domain/entities/Car";
+import { ICarRepository } from '@domain/repositories/ICarRepository';
+import { CarsNotFoundErrorResponse, IListCarsDTO, IListCarsResponse } from './IListCarsDTO';
+import { Car } from '@domain/entities/Car';
 
 export class IListCarsUseCase {
   constructor(

@@ -24,7 +24,7 @@ describe('Should analyse every possible end when listing cars', () => {
     const sut: IListCarsUseCase = iFactory.build();
     const { starts, ends }: IListCarsDTO = {
       starts: 0,
-      ends: -1,
+      ends: 10,
     };
     // Act
     const response: CarsNotFoundErrorResponse | IListCarsResponse =
@@ -33,6 +33,8 @@ describe('Should analyse every possible end when listing cars', () => {
         ends,
       });
     // Assert
+    expect(starts).toBeGreaterThanOrEqual(0);
+    expect(ends).toBeGreaterThan(starts);
     expect(response).not.toBeInstanceOf(CarsNotFoundErrorResponse);
     expect(response).toHaveProperty('cars');
   });
@@ -43,7 +45,7 @@ describe('Should analyse every possible end when listing cars', () => {
     const sut: IListCarsUseCase = iFactory.build();
     const { starts, ends }: IListCarsDTO = {
       starts: 1,
-      ends: -1,
+      ends: 10,
     };
     // Act
     const response: CarsNotFoundErrorResponse | IListCarsResponse =
@@ -51,8 +53,9 @@ describe('Should analyse every possible end when listing cars', () => {
         starts,
         ends,
       });
-
     // Assert
+    expect(starts).toBeGreaterThanOrEqual(0);
+    expect(ends).toBeGreaterThan(starts);
     expect(response).toBeInstanceOf(CarsNotFoundErrorResponse);
     expect(response).not.toHaveProperty('cars');
   })

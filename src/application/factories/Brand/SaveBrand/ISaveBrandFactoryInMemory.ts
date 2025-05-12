@@ -3,7 +3,7 @@ import { Brand } from '@domain/entities/Brand';
 import { InMemoryBrandRepository } from '@infra/repositories/Brand/InMemoryBrandRepository';
 import { iCryptoIdService } from '@infra/services/CryptoIdService';
 
-export class ISaveBrandFactory {
+export class ISaveBrandFactoryInMemory {
   constructor(
     private readonly brands: Brand[]
   ) {}
